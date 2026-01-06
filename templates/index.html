@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Spam Classifier</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="container">
+        <h1>Email Spam Classifier</h1>
+
+        <form method="post" action="/classify">
+            <textarea name="email_text" placeholder="Paste email text here..." required>{{ email_text or "" }}</textarea>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if email_text %}
+            <div class="email-box">
+                <h3>Submitted Email</h3>
+                <p>{{ email_text }}</p>
+            </div>
+
+            <div id="result" class="result pending">
+                Processing...
+            </div>
+
+            <script>
+                const taskId = "{{ task_id }}";
+
+                const interval = setInterval(async () => {
+                    const res = await fetch(`/result/${taskId}`);
+                    const data = await res.json();
+
+                    if (data.status === "done") {
+                        document.getElementById("result").innerText =
+                            "Prediction: " + data.prediction;
+
+                        document.getElementById("result").className =
+                            "result " + (data.prediction === "Spam" ? "spam" : "not-spam");
+
+                        clearInterval(interval);
+                    }
+                }, 1500);
+            </script>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
