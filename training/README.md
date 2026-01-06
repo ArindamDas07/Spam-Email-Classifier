@@ -84,5 +84,5 @@ F1-score : 0.9926
 - High precision and recall, critical for spam detection
 - Model is suitable for deployment in real-world systems
 
-The trained model is exported and used directly by the
+
 
