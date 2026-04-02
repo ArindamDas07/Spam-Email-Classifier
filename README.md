@@ -99,9 +99,7 @@ Confusion Matrix:
 -   Place the weights in the models/bert-spam/ directory.
 -   Deploy:
 
-```{=html}
-<!-- -->
-```
+
     docker-compose up --build -d --scale api=3 --scale worker=2
 
 ### 📥 Option B: One-Click Setup (Google Drive Bundle)
@@ -110,9 +108,7 @@ Confusion Matrix:
 -   Open a terminal in the project folder.
 -   Deploy:
 
-```{=html}
-<!-- -->
-```
+
     docker-compose up --build -d --scale api=3 --scale worker=2
 
 ## 🔗 Monitoring Endpoints
