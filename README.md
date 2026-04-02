@@ -100,10 +100,8 @@ Confusion Matrix:
 -   Deploy:
 
 ```
-
-```
     docker-compose up --build -d --scale api=3 --scale worker=2
-
+```
 ### 📥 Option B: One-Click Setup (Google Drive Bundle)
 
 -   Download and unzip the bundle from the Google Drive link.
@@ -111,9 +109,8 @@ Confusion Matrix:
 -   Deploy:
 
 ```
-```
     docker-compose up --build -d --scale api=3 --scale worker=2
-
+```
 ## 🔗 Monitoring Endpoints
 
 -   🌍 Main Application: http://localhost
