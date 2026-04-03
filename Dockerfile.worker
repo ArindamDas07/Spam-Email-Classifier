@@ -1,0 +1,26 @@
+FROM python:3.10-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+WORKDIR /app
+
+# 1. Upgrade pip (Required to handle the extra index correctly)
+RUN pip install --no-cache-dir --upgrade pip
+
+# 2. Copy the clean requirements
+COPY requirements-worker.txt ./requirements.txt
+
+# 3. THE FIX: Pass the URL directly in the RUN command
+# This tells pip: "Look in the standard place first, 
+# BUT for torch, look at the specialized CPU link."
+RUN pip install --no-cache-dir -r requirements.txt \
+    --extra-index-url https://download.pytorch.org/whl/cpu
+
+# 4. Copy code
+COPY ./app ./app
+COPY ./worker ./worker
+COPY ./models ./models
+
+CMD ["celery", "-A", "worker.worker", "worker", "--loglevel=info", "-c", "1"]
