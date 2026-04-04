@@ -4,7 +4,7 @@
 
 **Full Project Bundle (Ready-to-Run with Model):**  
 🚀 Download from Google Drive  
-https://drive.google.com/file/d/1KqGuIdpIz-_b2ugJ9FHtwd_ebjTbKkzK/view?usp=drive_link  
+https://drive.google.com/file/d/1C_zJSjniygvymu3w5nHioSlwhhozMJ68/view?usp=sharing  
 
 ---
 
