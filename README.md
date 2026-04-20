@@ -67,7 +67,7 @@ User Receives Result (Spam / Not Spam) ✅
 
 ### 🛡️ Production-Grade Features
 
-- **Strict Architectural Decoupling:** API containers are stripped of heavy ML libraries (No Torch/Transformers), reducing RAM footprint from 1.2GB to ~60MB per replica.  
+- **Strict Architectural Decoupling:** API containers are stripped of heavy ML libraries (No Torch/Transformers), reducing RAM footprint per replica.  
 - **Nginx Traffic Shield:** Acts as a Reverse Proxy and Rate Limiter (10r/s) to protect BERT workers from bot attacks and CPU exhaustion.  
 - **Smart Load Balancing:** Uses the `least_conn` algorithm to route traffic to the container with the lowest active workload.  
 - **Dynamic Service Discovery:** Implemented a DNS Resolver (127.0.0.11) in Nginx to prevent "502 Bad Gateway" errors during container restarts or auto-scaling.  
